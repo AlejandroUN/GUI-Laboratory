@@ -17,31 +17,43 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
+ * FXML Controller class
  *
  * @author aleja
  */
-public class FXMLDocumentController implements Initializable {
-    
-    @FXML
-    private Label greeting;
-    
-    @FXML
-    private Label label;
+public class RegistrySceneController implements Initializable {
 
     @FXML
-    private Button registryBtn;
+    private Label nameLabel;
 
     @FXML
-    private Button loginBtn;
-    
-    
-    
-    public void changeToRegistryView(ActionEvent event) throws IOException{
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("registryScene.fxml"));
+    private Label passwordLabel;
+
+    @FXML
+    private Label validatePasswordLabel;
+
+    @FXML
+    private TextField nametf;
+
+    @FXML
+    private TextField passwordtf;
+
+    @FXML
+    private TextField validatePasswordtf;
+
+    @FXML
+    private Label registryLabel;
+
+    @FXML
+    private Button resgistryBtn;
+
+    @FXML
+    void registryBtnAction(ActionEvent event) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
         
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -49,23 +61,9 @@ public class FXMLDocumentController implements Initializable {
         window.setScene(tableViewScene);
         window.show();
     }
-    
-    public void changeToLogInView(ActionEvent event) throws IOException{
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("logInScene.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(tableViewScene);
-        window.show();
-    }
-    
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
-    
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
