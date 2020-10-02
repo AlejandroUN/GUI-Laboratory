@@ -38,10 +38,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button loginBtn;
     
-    
-    
-    public void changeToRegistryView(ActionEvent event) throws IOException{
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("registryScene.fxml"));
+    public void changeScene(ActionEvent event, String fxmlFile) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource(fxmlFile));
         Scene tableViewScene = new Scene(tableViewParent);
         
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -50,14 +48,13 @@ public class FXMLDocumentController implements Initializable {
         window.show();
     }
     
+    
+    public void changeToRegistryView(ActionEvent event) throws IOException{
+        changeScene(event, "registryScene.fxml");
+    }
+    
     public void changeToLogInView(ActionEvent event) throws IOException{
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("logInScene.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(tableViewScene);
-        window.show();
+        changeScene(event, "logInScene.fxml");
     }
     
     @FXML
