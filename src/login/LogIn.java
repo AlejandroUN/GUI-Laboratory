@@ -5,6 +5,7 @@
  */
 package login;
 
+import java.awt.Image;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,10 +20,9 @@ public class LogIn extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
-        Scene scene = new Scene(root);
-        
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));        
+        Scene scene = new Scene(root);            
+        stage.setTitle("Ingreso de Usuario");
         stage.setScene(scene);
         stage.show();
     }
